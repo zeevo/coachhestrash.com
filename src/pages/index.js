@@ -1,22 +1,38 @@
 import React from "react"
-import { Link } from "gatsby"
+import styled from "styled-components"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+const H1 = styled.h1`
+  font-size: 5rem;
+  color: yellow;
+  transform: rotate(-20deg);
+`
+
+const IndexPage = ({ data }) => {
+  console.log(data)
+  const { site } = data
+  const { siteMetadata } = site
+  return (
+    <Layout>
+      <SEO />
+      <H1>{siteMetadata.title}</H1>
+    </Layout>
+  )
+}
 
 export default IndexPage
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        author
+        description
+        title
+      }
+    }
+  }
+`
