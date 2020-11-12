@@ -12,7 +12,6 @@ const H1 = styled.h1`
 `
 
 const IndexPage = ({ data }) => {
-  console.log(data)
   const { site } = data
   const { siteMetadata } = site
   return (

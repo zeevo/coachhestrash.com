@@ -11,6 +11,7 @@ const Container = styled.div`
 const Main = styled.main`
   display: flex;
   flex-direction: column;
+  margin-top: 2rem;
 `
 
 const Layout = ({ children }) => {
